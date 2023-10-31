@@ -25,7 +25,6 @@ void			ft_puthxdm(int nb)
 	int	aux;
 
 	aux = 0;
-	write(1, "0x", 2);
 	if (nb == -2147483648)
 		write(1, "-80000000", 9);
 	else

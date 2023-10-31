@@ -12,33 +12,40 @@
 
 #include "ft_printf.h"
 
-static int ft_check(const char *str, int i, va_list arg, ...)
+static int ft_check(const char *str, int i, va_list arg)
 {
     int len;
 
-    len = 0;
     if (str[i] == 's')
-        ft_putstr(va_arg(arg, char *));
+        len = ft_putstr(va_arg(arg, char *));
     else if (str[i] == 'd' || str[i] == 'i')
-        ft_putnbr(va_arg(arg, int));
+        len = ft_putnbr(va_arg(arg, int));
     else if (str[i] == 'u')
-        ft_putuns(va_arg(arg, unsigned int));
+        /*len = */ft_putuns(va_arg(arg, unsigned int));
     else if (str[i] == 'p')
-        ft_putptr(va_arg(arg, void *));
-    else if (str[i] == 'x')
-        ft_puthxd(va_arg(arg, int));
-    else if (str[i] == 'X')
-        ft_puthxdm(va_arg(arg, int));
+        /*len = */ft_putptr(va_arg(arg, void *));
+    else if (str[i] == 'x' || str[i] == 'X')
+    {
+        write(1, "0x", 2);
+        if (str[i] == 'x')
+            /*len = */ft_puthxd(va_arg(arg, int));
+        else 
+            /*len = */ft_puthxdm(va_arg(arg, int));
+    }
     else if (str[i] == 'c')
-        ft_putchar(va_arg(arg, int));
+        len = ft_putchar(va_arg(arg, int));
     else
-        write(1, &str[i], 1);
-    return (i);
+        len = ft_putchar(str[i]);
+    return (len);
 }
 
 int ft_printf(const char *str, ...)
 {
     int     i;
+    //escrito por bvelasco
+    int len;
+    len = 0;
+    //escrito por mi
     va_list arg;
 
     va_start(arg, str);
@@ -50,14 +57,14 @@ int ft_printf(const char *str, ...)
             i++;
             while (str[i] == 32)
                 i++;
-            i = ft_check(str, i, arg); 
+            len += ft_check(str, i, arg); 
         }
         else
             write(1, &str[i], 1);
         i++;
     }
     va_end(arg);
-	return (i);
+	return (len + i);
 }
 
 /*

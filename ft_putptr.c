@@ -21,6 +21,7 @@ void	ft_putptr(void *ptr)
 	n = 0;
 	i = 0;
 
+	write(1, "0x", 2);
 	ft_puthxd((int)ptr);
 	
 }

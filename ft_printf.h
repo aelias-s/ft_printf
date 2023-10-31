@@ -19,11 +19,11 @@
 # include <stdio.h>
 
 int	    ft_printf(char const *str, ...);
-void	ft_putstr(char *s);
-void	ft_putnbr(int nb);
-void    ft_putuns(unsigned int);
-void	ft_putptr(void *ptr);
-void	ft_puthxd(int nb);
-void	ft_puthxdm(int nb);
-void	ft_putchar(char c);
+int 	ft_putstr(char *s);
+int 	ft_putnbr(int nb);
+void     ft_putuns(unsigned int);
+void	    ft_putptr(void *ptr);
+void	    ft_puthxd(int nb);
+void	    ft_puthxdm(int nb);
+int	    ft_putchar(char c);
 #endif
