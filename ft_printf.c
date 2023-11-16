@@ -36,7 +36,7 @@ static int ft_check(const char *str, int i, va_list arg)
         len = ft_putchar(va_arg(arg, int));
     else
         len = ft_putchar(str[i]);
-    return (len);
+    return (len - 1);
 }
 
 int ft_printf(const char *str, ...)
@@ -54,9 +54,13 @@ int ft_printf(const char *str, ...)
     {
         if (str[i] == '%' && str[i + 1])
         {
+            len--;
             i++;
             while (str[i] == 32)
+            {
                 i++;
+                len--;
+            }
             len += ft_check(str, i, arg); 
         }
         else
@@ -68,8 +72,8 @@ int ft_printf(const char *str, ...)
 }
 
 /*
-TE FALTA TERMINAR EL PUTPTR. ES UNA TONTERIA LO QUE TE QUEDA
-TAMBIÉN TE FALTA EL TEMA DE DEVOLVER LA LENG DE CADA FUNCION (SON TODOS VOID) PARA QUE LA FUNCIÓN FINAL DEVUELVA LA LENG REAL.
-AHORA SOLO DEVUELVE LA LENG DEL STR INICIA.
+EL PUTNBR VA COMO EL CULO, TE TOCA RECONTRUIRLO DE 0, EL FT_PRINT CREO QUE VA BIEN PERO HABRA QUE COMPROBAR
+CON EL RESTO DE CASOS, DICHO LO CUAL CON LOS QUE TENGO ESCRITOS ME VA PERFE, SI NO ESTÁ ESCRITO EN EL RESTO DE CASOS
+BASTA CON COPIAR EL FORMATO Y EN TEORIA VA
 TIENES QUE CRAFTEARTE UN X_LENG PARA CADA UNA DE LAS FUNCIONES. ¡¡¡QUE NO SE TE OLVIDE HACERLAS ESTATICAS SUBNORMAL!!!
 */

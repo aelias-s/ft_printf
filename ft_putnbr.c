@@ -11,35 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
-int	ft_putnbr(int nb)
-{
-	int	aux;
-	int len;
 
-	aux = 0;
-	len = ft_strnmb(nb);
-	if (nb == -2147483648)
-		write(1, "-2147483648", 11);
-	else
-	{
-		if (nb < 0)
-		{
-			write(1, "-", 1);
-			nb = nb * -1;
-		}
-		aux = nb % 10;
-		nb = nb / 10;
-		if (nb > 0)
-		{
-			ft_putnbr(nb);
-		}
-		aux = aux + 48;
-		write(1, &aux, 1);
-	}
-	return (len);
-}
-*/
 int	ft_putnbr(int nb)
 {
 	int len;

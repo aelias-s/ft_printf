@@ -5,9 +5,9 @@
 int main()
 {
     //int p;
-    //char c = 'c';
-    //char *s = "patata";
-    int d = 0;
+    char c = 'c';
+    char *s = "patata";
+    int d = -12;
     //int hex = -4779;
 
     //ft_printf("Hola manin %    s patata", array);
@@ -28,9 +28,9 @@ int main()
     //ft_printf("%X", hex);
     //ft_printf("\n");
     //ft_printf("%%");
-    ft_printf("    hola       que     tal %    i\n", 2);
-    int i = ft_printf("%d", d);
-    printf("\n");
+    //ft_printf("    hola       que     tal %    i\n", 2);
+    int i = ft_printf("%d : %c", d, c);
+    //printf("\n Me deberia de dar 13");
     printf("\n%d", i);
 
     return 0;
