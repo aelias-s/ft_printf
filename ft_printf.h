@@ -21,9 +21,9 @@
 int	    ft_printf(char const *str, ...);
 int 	ft_putstr(char *s);
 int 	ft_putnbr(int nb);
-void     ft_putuns(unsigned int);
-void	    ft_putptr(void *ptr);
-void	    ft_puthxd(int nb);
-void	    ft_puthxdm(int nb);
+int     ft_putuns(unsigned int);
+int	    ft_putptr(void *ptr);
+int	    ft_puthxd(unsigned int nb);
+int	    ft_puthxdm(unsigned int nb);
 int	    ft_putchar(char c);
 #endif

@@ -12,18 +12,18 @@
 
 #include "ft_printf.h"
 
-void	ft_putuns(unsigned int nb)
-{
-	int	aux;
 
-	aux = 0;
-	
-	aux = nb % 10;
-	nb = nb / 10;
-	if (nb > 0)
+int	ft_putuns(unsigned int nb)
+{
+	int len;
+
+	len = 0;
+	if(nb > 9)
 	{
-		ft_putuns(nb);
+		len += ft_putuns(nb / 10);
+		len += ft_putuns(nb % 10);
 	}
-	aux = aux + 48;
-	write(1, &aux, 1);
+	else
+		len += ft_putchar(nb + 48);
+	return (len);
 }

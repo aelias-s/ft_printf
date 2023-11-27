@@ -12,34 +12,25 @@
 
 #include "ft_printf.h"
 
-static void 	ft_printnbr(int nb)
+int ft_printhxd(unsigned int nb)
 {
 	if (nb < 10)
-		nb += 48;
+		return (ft_putchar(nb + 48));
 	else
-		nb = nb - 10 + 'a';
-	write(1, &nb, 1);
+		return (ft_putchar(nb - 10 + 'a'));
 }
-void			ft_puthxd(int nb)
-{
-	int	aux;
 
-	aux = 0;
-	if (nb == -2147483648)
-		write(1, "-80000000", 9);
-	else
+int	ft_puthxd(unsigned int nb)
+{
+	int len;
+
+	len = 0;
+	if(nb >= 16)
 	{
-		if (nb < 0)
-		{
-			write(1, "-", 1);
-			nb = nb * -1;
-		}
-		aux = nb % 16;
-		nb = nb / 16;
-		if (nb > 0)
-		{
-			ft_puthxd(nb);
-		}
-		ft_printnbr(aux);
+		len += ft_puthxd(nb / 16);
+		len += ft_puthxd(nb % 16);
 	}
+	else
+		len += ft_printhxd(nb);
+	return (len);
 }

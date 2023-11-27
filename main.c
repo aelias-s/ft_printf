@@ -4,34 +4,20 @@
 
 int main()
 {
-    //int p;
-    char c = 'c';
-    char *s = "patata";
-    int d = -12;
-    //int hex = -4779;
-
-    //ft_printf("Hola manin %    s patata", array);
-    //ft_printf("%c", c);
-    //ft_printf("\n");
-    //ft_printf("%s", s);
-    //ft_printf("\n");
-    //ft_printf("%p", &p);
-    //ft_printf("\n");
-    //ft_printf("%d", 8);
-    //ft_printf("\n");
-    //ft_printf("\n");
-    //ft_printf("%i", d),
-    //ft_printf("%u", d);
-    //ft_printf("\n");
-    //ft_printf("%x", hex);
-    //ft_printf("\n");
-    //ft_printf("%X", hex);
-    //ft_printf("\n");
-    //ft_printf("%%");
-    //ft_printf("    hola       que     tal %    i\n", 2);
-    int i = ft_printf("%d : %c", d, c);
-    //printf("\n Me deberia de dar 13");
-    printf("\n%d", i);
+    //char c = 'p';
+    //char *p = &c;
+    //char *s;
+    //float d = 3456.65;
+    //unsigned int hex = 214749;
+    //unsigned int mhex = 104;
+    //int i = printf("%x\n", mhex);
+    //int i2 = ft_printf("%x", mhex);
+    //int i = ft_printf("%s", "0x");
+    int i = printf("%p\n", "");
+    int i2 = ft_printf("%p\n", "");
+    
+    printf("%d", i);
+    printf(" : %d", i2);
 
     return 0;
 

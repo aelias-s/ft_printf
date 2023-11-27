@@ -11,19 +11,34 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-void	ft_putptr(void *ptr)
+int ft_printhxdsizet(size_t nb)
 {
-	int	i;
-	int	n;
+	if (nb < 10)
+		return (ft_putchar(nb + 48));
+	else
+		return (ft_putchar(nb - 10 + 'a'));
+}
 
-	n = 0;
-	i = 0;
+int	ft_puthxdsizet(size_t nb)
+{
+	int len;
 
+	len = 0;
+	if(nb >= 16)
+	{
+		len += ft_puthxdsizet(nb / 16);
+		len += ft_puthxdsizet(nb % 16);
+	}
+	else
+		len += ft_printhxdsizet(nb);
+	return (len);
+}
+
+int ft_putptr(void *ptr)
+{
 	write(1, "0x", 2);
-	ft_puthxd((int)ptr);
-	
+	return (ft_puthxdsizet((size_t)ptr) +2);
 }
 
 /*
